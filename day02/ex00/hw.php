@@ -1,3 +1,5 @@
+#!/usr/bin/env php
+
 <!-- to execute add to local host server or use XAMPP and load your php file -->
 
 <?php
