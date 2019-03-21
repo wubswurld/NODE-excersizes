@@ -26,5 +26,5 @@ var d = new Date();
 var ms = d.getMinutes();
 var str = arr.join('  ')
 console.log("WHO: " + str + ' ' + t + ':' + ms);
-if (user > 1)
-    console.log(arr2);
+if (require("os").userInfo().username > 1)
+    console.log(arr2 + ' ' + t + ':' + ms);
