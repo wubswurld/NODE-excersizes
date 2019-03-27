@@ -12,7 +12,7 @@
 // });
 
 var hello = () => {
-    process.stdout.write("Hello World!");
+    process.stdout.write("Hello World");
 }
 
 hello();
