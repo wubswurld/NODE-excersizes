@@ -56,17 +56,21 @@ function setMonth(arr) {
     monthnum = 11
   init(arr, monthnum);
 }
-
+// || daynum.length > 2
 function init(arr, monthnum) {
   var daynum = arr[1]
-  if (daynum > 31 || daynum <= 0 || daynum.length > 2)
+  if (daynum > 31 || daynum <= 0)
     return false;
   // var month = arr[2];
   var year = arr[3];
   let newarr = new Array ()
   newarr = arr[4].split(':');
   var hours = newarr[0]
+  if (hours.length > 2)
+    return false
   var minutes = newarr[1]
+  if (minutes.length > 2)
+    return false
   getSeconds(daynum, monthnum, year, hours, minutes)
 }
 function getSeconds(daynum, monthnum, year, hours, minutes) {
