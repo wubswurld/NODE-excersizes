@@ -1,1 +1,1 @@
-CREATE DATABASE db_jwatter;
+CREATE DATABASE db_jawatter;
