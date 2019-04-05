@@ -1,28 +1,47 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
-                <script src="jquery-3.3.1.min.js"></script>
-                <script src="./index.js"></script>
+                <style>
+                        #wrapper {
+                            height: 200px;
+                            width: 200px;
+                            background: red;
+                            border-radius: 50%;
+                            margin: 450px;
+                        }
+                    </style>
+                    <script>
+                        var balloon;
+                        var x = 200;
+                        var color = new Array('red', 'green', 'blue');
+                        var index = 0;
+                        window.onload = function load () {
+                            balloon = document.querySelector(".wrapper");
+                            balloon.addEventListener("click", changeNow);
+                        }
+                        function changeNow() {
+                            if (x) {
+                            x += 10;
+                            }
+                            if (x >= 420) {
+                                x = 200;
+                            }
+                            index++;
+                            if (index > 2) {
+                                index = 0;
+                            }
+                            Adjust();
+                        }
+                        function Adjust() {
+                            balloon.style.background = color[index];
+                            balloon.style.height = x + 'px';
+                            balloon.style.width = x + 'px';
+                        }
+
+                </script>
         </head>
     <body>
-        <style>
-            #wrapper {
-                height: 200px;
-                width: 200px;
-                background: red;
-                border-radius: 180px;
-                margin: 450px;
-            }
-            #wrapper:active {
-                background: green;
-                height: 2000px;
-                width: 2000px;
-                border-radius: 1800px;
-                margin: 450px;
-
-            }
-        </style>
-        <div id="wrapper">
+        <div id="wrapper" class="wrapper">
 
         </div>
     </body>
