@@ -1,27 +1,31 @@
 var fs = require('fs');
 var argv = process.argv[2] 
 function    main() {
-    fs.readFile(argv, 'utf8', function(err, contents) {
-        //console.log(contents);
-    });
-    fs.createReadStream(argv).pipe(fs.createWriteStream('new.html'));
-    var path = 'new.html'
-    modFile(path)
+    // fs.readFile(argv, 'utf8', function(err, contents) {
+    //     //console.log(contents);
+    // });
+    modFile()
 }
-function modFile(path) {
+function modFile() {
     var arr = new Array ()
-    const regex = /<a.*?>(.*?)</
-    const regex2 = /<a.*?title="(.*?)">/
     var contents = fs.readFileSync(argv, 'utf8');
     var str = contents.split('\n')
     for (var x = 0; x < str.length; x++) {
         arr.push(str[x])
     }
-    if (regex.test(arr)) {
+    console.log(arr);
+        fs.writeFile('new.html', arr.join('\n'), function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            var text = text.replace(/<wiki>(.+?)<\/wiki>/g, function(match, contents, offset, input_string)
+            {
+                return "<a href='wiki/"+contents.replace(/ /g, '_')+"'>"+contents+"</a>";
+            }
+        );
         
-    }
-    if (regex2.test(arr))
-        console.log("yes2")
-    //console.log(arr)
+            console.log("The file was saved!");
+        });
 }
+
 main ()

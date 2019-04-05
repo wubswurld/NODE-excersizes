@@ -1,0 +1,16 @@
+{
+  "name": "init",
+  "version": "1.0.0",
+  "description": "idk",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "wubs",
+  "license": "ISC"
+}

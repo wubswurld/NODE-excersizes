@@ -11,6 +11,5 @@ function printx() {
         process.stdout.write("x");
     }
 }
-
 printx();
 //  arrofunc();
