@@ -18,7 +18,21 @@
                         window.onload = function load () {
                             balloon = document.querySelector(".wrapper");
                             balloon.addEventListener("click", changeNow);
+                            balloon.addEventListener("mouseleave", leaveNow);
                         }
+                        function leaveNow() {
+                            if (x) {
+                                x -= 5;
+                            }
+                            if (x < 200) {
+                                x = 200;
+                            }
+                            index++;
+                            if (index > 2) {
+                                index = 0;
+                            }
+                            Adjust();
+                        }   
                         function changeNow() {
                             if (x) {
                             x += 10;
@@ -37,7 +51,6 @@
                             balloon.style.height = x + 'px';
                             balloon.style.width = x + 'px';
                         }
-
                 </script>
         </head>
     <body>
