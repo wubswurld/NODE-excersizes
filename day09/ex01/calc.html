@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calc</title>
+    <style>
+        body {
+            background: linear-gradient(blue, orange);
+            background: blue;
+        }
+        .main {
+            background: gray;
+            width: 200px;
+            padding: 75px 50px 50px 50px;
+            margin-left: 60px;
+            margin-top: 80px;
+            border-radius: 160px; 
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        #number {
+            margin-left: 30px;
+            margin-bottom: 15px; 
+        }
+        #op {
+            background: gray;
+            width: 200px;
+            padding: 75px 50px 50px 50px;
+            margin-left: 400px;
+            margin-top: 60px; 
+            border-radius: 160px; 
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        .main2 {
+            background: gray;
+            width: 200px;
+            padding: 75px 50px 50px 50px;
+            margin-left: 650px;
+            margin-top: 60px; 
+            border-radius: 160px; 
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        #number2 {
+            margin-left: 30px;
+            margin-bottom: 15px; 
+        }
+        .main3 {
+            background: gray;
+            width: 100px;
+            padding: 55px 30px 30px 30px;
+            margin-left: 1000px;
+            margin-top: 70px; 
+            border-radius: 160px; 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        #submit {
+            text-align: center;
+             margin-left: 20px;
+            margin-bottom: 10px; 
+        }
+        /* body {
+            background-color: rgb(101, 74, 255);
+            font-family: Arial;
+        }
+        h1 {
+            text-align: center;
+            margin: 5px 0 20px 0;
+        }
+        .calc {
+            width: 300px;
+            background-color: #ffffff;
+            margin: 10% auto;
+            padding: 75px 50px 50px 50px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+        input, select {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            border: #ccc 1px solid;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input[type='text'] {
+            width: 274px;
+            height: 30px;
+        }
+        select, input[type='submit'] {
+            width: 300px;
+            height: 44px;
+        }
+        select {
+            text-indent: 130px;
+        } */
+    </style>
+    <script>
+        var calc;
+        var in1;
+        var in2;
+        var op;
+        window.onload = function () {
+            calc = document.querySelector("#calc");
+            in1 = document.querySelector("#number");
+            in2 = document.querySelector("#number2");
+            op = document.querySelector("#op");
+            calc.addEventListener("submit", submit);
+            setInterval("alert('Please, use me...')", 30000)
+        }
+        function numIsValid(l, r) {
+            return l == parseInt(l, 10) && l >= 0 && r == parseInt(r, 10) && r >= 0;
+        }
+        function submit(event) {
+            event.preventDefault();
+            var input = Number(in1.value);
+            var input2 = Number(in2.value);
+            if (!numIsValid(in1.value, in2.value)) {
+                alert("No bueno Try Again\n Error :(");
+                return false;
+            }
+            switch (op.value) {
+                case ('add'):
+                    result(input + input2);
+                    break;
+                case ('mul'):
+                    result(input * input2);
+                    break;
+                case ('div'):
+                    if (input2 === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(input / input2);
+                    }
+                    break;
+                case ('mod'):
+                    if (input2 === 0) {
+                        result("It’s over 9000!");
+                    } else {
+                        result(input / input2);
+                    }
+                    break;
+                case ('min'):
+                    result(input - input2);
+                    break;
+                default:
+                    result("operation not found");
+                    break;
+            }
+        }
+        function result(res) {
+            console.log(res);
+            alert("Your Calculation: " + res);
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="" id="calc">
+            <div class="main">
+                    <input type="number" id="number">
+            </div>
+            <div class="mid">
+                    <select id="op">
+                            <option value="add">+</option>
+                            <option value="min">-</option>
+                            <option value="mul">*</option>
+                            <option value="div">/</option>
+                            <option value="mod">%</option>
+                    </select>
+            </div>
+            <div class="main2">
+                    <input type="number" id="number2">
+            </div>
+                <div class="main3">
+                        <input type="submit" id="submit" value="Try me!">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
