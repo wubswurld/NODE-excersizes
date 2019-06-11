@@ -8,7 +8,7 @@ function    rostring() {
     var cpy = arr[0];
     arr.shift();
     arr.push(cpy);
-    console.log(arr);
+    console.log(arr.join(' '));
 }
 rostring();
 // function    rostring(str) {
