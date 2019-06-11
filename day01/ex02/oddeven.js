@@ -11,4 +11,5 @@ stdin.addListener("data", function(num) {
     }
     if(isNaN(n))
         console.log("not a #");
+        console.log("enter a number:");
   });

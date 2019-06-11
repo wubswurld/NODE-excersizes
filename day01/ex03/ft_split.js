@@ -22,7 +22,7 @@ function    ft_split() {
             //console.log(ret.push(str[x]));
             ret.push(str[x]);
         }
-        console.log(x + ' => ' + ret);
+        console.log('[' + x + ']' + ' => ' + ret[x]);
     }
     return(ret)
 }
