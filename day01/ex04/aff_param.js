@@ -13,7 +13,6 @@ function    aff_param() {
     if (str[i] == ' ')
         str = str.replace(' ', '\n');
     process.stdout.write(str[i]);
-    }
-    
+    } 
 }
 aff_param();
