@@ -26,5 +26,3 @@ function    ft_split() {
     }
     return(ret)
 }
-
-ft_split('bow wow wow yippee yo yippee yay');
