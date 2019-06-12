@@ -1,7 +1,1 @@
-CREATE TABLE ft_table
-{
-	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	login VARCHAR(255) NOT NULL DEFAULT 'login',
-	groupe ENUM(staff, student, other) NOT NULL,
-	creation_date DATE NOT NULL
-};
+CREATE TABLE ft_table ( id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, login VARCHAR(11) DEFAULT 'toto' NOT NULL, groupe ENUM('staff', 'student', 'other') NOT NULL, creation_date DATE NOT NULL);
