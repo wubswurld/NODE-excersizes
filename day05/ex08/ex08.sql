@@ -1,3 +1,1 @@
-SELECT last_name, first_name, birthdate
-FROM user_card
-WHERE EXTRACT(YEAR FROM DATE(birthdate)) = 1989;
+SELECT last_name, first_name, DATE(birthdate) AS birthdate FROM user_card WHERE birthdate LIKE '1989%' ORDER BY last_name;
