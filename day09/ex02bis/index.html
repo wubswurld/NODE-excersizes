@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <title>To-do by wubs</title>
+    <script>
+        var ft_list;
+        var cookie = [];
+        $(document).ready(function(){
+        document.querySelector("#new").addEventListener("click", newTodo);
+        ft_list = document.querySelector("#ft_list");
+        var tmp = document.cookie;
+        if (tmp) {
+        cookie = JSON.parse(tmp);
+        cookie.forEach(function (e) {
+            addTodo(e);
+        });
+    }
+    })
+        window.onunload = function () {
+        var todo = ft_list.children;
+        var newCookie = [];
+        for (var i = 0; i < todo.length; i++)
+            newCookie.unshift(todo[i].innerHTML);
+        document.cookie = JSON.stringify(newCookie);
+    };
+        function newTodo(){
+        var todo = prompt("Add To-Do?", '');
+        if (todo !== '') {
+            addTodo(todo)
+        }
+    }   
+    function addTodo(todo){
+    var div = document.createElement("div");
+    div.innerHTML = todo;
+    div.addEventListener("click", deleteTodo);
+    ft_list.insertBefore(div, ft_list.firstChild);
+}
+    function deleteTodo(){
+    if (confirm("Are you sure?")){
+        this.parentElement.removeChild(this);
+     }
+}
+    </script>
+    <style>
+        body {
+            font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.4em;
+            /* color: #4d4d4d; */
+            background-color: #3a5dfa;
+            /* background-image: linear-gradient(to right, red , yellow); */
+            /* background-image: linear-gradient(left, blue, red); */
+            width: 500px;
+            margin: 0 auto;
+        }
+        h2 {
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            color:black;
+        }
+        .todos {
+            width:40%;
+            color: white;
+            background-color: #7fc5f3;
+            margin:150px auto 0 auto;
+            position: absolute;
+        }
+
+        #ft_list{
+            margin-top:15px;
+            font-size: 24px;
+        }
+        /* #ft_list:before {
+            content: '';
+            border-left: 1px solid #f5d6d6;
+            border-right: 1px solid #f5d6d6;
+            width: 2px;
+            position: absolute;
+            top: 0;
+            left: 40px;
+            height: 100%;
+        } */
+        #ft_list div{
+            padding:10px 40px 10px 60px;
+            line-height: 40px;
+            border-bottom: 1px dotted #ccc;
+            position: relative;
+        }
+        #ft_list div:hover:after{
+            content:'x';
+            right: 15px;
+            position:absolute;
+            color: rgba(0, 0, 0, 0.3);
+        }
+        button{
+            width:100%;
+            height:80px;
+            background-color:#ffffff;
+            border:0px solid #ffffff;
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="todos">
+        <h2>Wubs Todo List</h2>
+        <div id="ft_list"></div>
+        <button id="new">New</button>
+    </div>
+</body>
+</html>
