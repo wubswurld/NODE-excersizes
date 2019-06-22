@@ -15,17 +15,11 @@
                         var x = 200;
                         var color = new Array('red', 'green', 'blue');
                         var index = 0;
-                        // window.onload = function load () {
-                        //     balloon = document.querySelector(".wrapper");
-                        //     balloon.addEventListener("click", changeNow);
-                        //     balloon.addEventListener("mouseleave", leaveNow);
-                        // }
-
-                        $(document).ready(function(){
-                            balloon = $('.wrapper');
-                            balloon.click(changeNow);
-                            balloon.mouseleave(leaveNow);
-                         })
+                        window.onload = function load () {
+                            balloon = document.querySelector(".wrapper");
+                            balloon.addEventListener("click", changeNow);
+                            balloon.addEventListener("mouseleave", leaveNow);
+                        }
                         function leaveNow() {
                             if (x) {
                                 x -= 5;
